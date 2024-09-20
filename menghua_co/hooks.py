@@ -4,6 +4,7 @@ app_publisher = "Ecosoft"
 app_description = "Menghua Co\'s ERP"
 app_email = "kittiu@ecosoft.co.th"
 app_license = "mit"
+required_apps = ["erpnext", "thai_tax"]
 
 # Apps
 # ------------------
@@ -71,6 +72,11 @@ app_license = "mit"
 # website_generators = ["Web Page"]
 
 # Jinja
+jinja = {
+    "methods": [
+        "menghua_co.utils.amount_in_bahttext",
+    ],
+}
 # ----------
 
 # add methods and filters to jinja environment
@@ -188,7 +194,6 @@ app_license = "mit"
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
 # Ignore links to specified DocTypes when deleting documents
 # -----------------------------------------------------------
 

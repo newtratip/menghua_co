@@ -242,3 +242,14 @@ required_apps = ["frappe/erpnext", "kittiu/thai_tax", "kittiu/sales_billing"]
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [["name", "in", (
+            "Sales Order-custom_mh_order_type",
+            "Quotation-custom_mh_order_type",
+            "Item-custom_allow_standard_type",
+            "Item-custom_allow_custom_type"
+        )]]
+    },
+]

@@ -1,0 +1,48 @@
+[
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Order",
+  "fieldname": "custom_mh_order_type",
+  "fieldtype": "Select",
+  "insert_after": "order_type",
+  "label": "MH Order Type",
+  "module": "Menghua Co",
+  "name": "Sales Order-custom_mh_order_type",
+  "options": "หน้าร้าน\nสั่งทำ",
+  "reqd": 1
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Quotation",
+  "fieldname": "custom_mh_order_type",
+  "fieldtype": "Select",
+  "insert_after": "order_type",
+  "label": "MH Order Type",
+  "module": "Menghua Co",
+  "name": "Quotation-custom_mh_order_type",
+  "options": "หน้าร้าน\nสั่งทำ",
+  "reqd": 1
+ },
+ {
+  "depends_on": "eval:doc.is_sales_item == 1",
+  "doctype": "Custom Field",
+  "dt": "Item",
+  "fieldname": "custom_allow_standard_type",
+  "fieldtype": "Check",
+  "insert_after": "is_sales_item",
+  "label": "Allow Standard Type",
+  "module": "Menghua Co",
+  "name": "Item-custom_allow_standard_type"
+ },
+ {
+  "depends_on": "eval:doc.is_sales_item == 1",
+  "doctype": "Custom Field",
+  "dt": "Item",
+  "fieldname": "custom_allow_custom_type",
+  "fieldtype": "Check",
+  "insert_after": "custom_allow_standard_type",
+  "label": "Allow Custom Type",
+  "module": "Menghua Co",
+  "name": "Item-custom_allow_custom_type"
+ }
+]

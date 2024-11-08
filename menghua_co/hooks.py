@@ -242,3 +242,7 @@ required_apps = ["frappe/erpnext", "kittiu/thai_tax", "kittiu/sales_billing"]
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+doctype_js = {
+	"Sales Order": "public/js/sales_order.js",
+    "Quotation": "public/js/quotation.js",
+}

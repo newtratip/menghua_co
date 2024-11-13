@@ -6,4 +6,6 @@ from frappe.model.document import Document
 
 
 class ManufacturingOrder(Document):
-	pass
+    def before_submit(self):
+        if self.status == "ร่าง":
+            self.status = "พิมพ์ปก"  

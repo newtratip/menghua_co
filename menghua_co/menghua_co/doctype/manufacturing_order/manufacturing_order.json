@@ -13,15 +13,14 @@
   "date",
   "delivery_date",
   "column_break_fjcp",
+  "status",
   "reference",
   "sales_order",
   "section_break_zcto",
   "items",
   "section_break_wsxr",
   "note",
-  "tab_break_dnjb",
   "status_section",
-  "status",
   "amended_from",
   "connections_tab"
  ],
@@ -110,11 +109,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "tab_break_dnjb",
-   "fieldtype": "Tab Break",
-   "label": "More Info"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -134,7 +128,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-13 10:53:41.774468",
+ "modified": "2024-11-13 13:51:33.202604",
  "modified_by": "Administrator",
  "module": "Menghua Co",
  "name": "Manufacturing Order",

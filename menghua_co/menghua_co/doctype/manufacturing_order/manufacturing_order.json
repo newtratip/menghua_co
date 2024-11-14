@@ -12,6 +12,7 @@
   "column_break_iygg",
   "date",
   "delivery_date",
+  "company",
   "column_break_fjcp",
   "status",
   "reference",
@@ -123,12 +124,19 @@
    "fieldtype": "Tab Break",
    "label": "Connections",
    "show_dashboard": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-13 13:51:33.202604",
+ "modified": "2024-11-14 11:51:45.928400",
  "modified_by": "Administrator",
  "module": "Menghua Co",
  "name": "Manufacturing Order",

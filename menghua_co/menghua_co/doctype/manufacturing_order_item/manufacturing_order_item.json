@@ -13,6 +13,7 @@
   "uom",
   "cover_section",
   "cover_item",
+  "cover_item_name",
   "cover_front_section",
   "format_front",
   "print_type_front",
@@ -27,6 +28,7 @@
   "plate_no_back",
   "internal_section",
   "internal_item",
+  "internal_item_name",
   "line",
   "line_top",
   "column_break_ogww",
@@ -209,12 +211,28 @@
    "fieldname": "packaging",
    "fieldtype": "Data",
    "label": "Packaging"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "cover_item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Cover Item name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "internal_item_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Internal Item Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-11-12 18:03:26.352884",
+ "modified": "2024-11-15 16:19:02.976286",
  "modified_by": "Administrator",
  "module": "Menghua Co",
  "name": "Manufacturing Order Item",

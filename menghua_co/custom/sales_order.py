@@ -8,6 +8,7 @@ def make_manufacturing_order(source_name, target_doc=None):
     def set_missing_values(source, target):
         target.date = source.transaction_date  
         target.delivery_date = source.delivery_date
+        target.company = source.company
 
         for item in source.items:
             target.append('items', {

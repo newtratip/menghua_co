@@ -9,10 +9,10 @@
   "customer",
   "customer_name",
   "tax_id",
+  "company",
   "column_break_iygg",
   "date",
   "delivery_date",
-  "company",
   "column_break_fjcp",
   "status",
   "reference",
@@ -128,7 +128,6 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Company",
    "options": "Company"
   }
@@ -136,7 +135,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-14 11:51:45.928400",
+ "modified": "2024-11-15 09:51:20.772741",
  "modified_by": "Administrator",
  "module": "Menghua Co",
  "name": "Manufacturing Order",
@@ -153,6 +152,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

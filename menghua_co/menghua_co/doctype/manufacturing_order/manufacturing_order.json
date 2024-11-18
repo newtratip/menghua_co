@@ -10,16 +10,45 @@
   "customer_name",
   "tax_id",
   "company",
-  "column_break_iygg",
+  "column_break_customer",
   "date",
   "delivery_date",
-  "column_break_fjcp",
+  "column_break_date",
   "status",
   "reference",
   "sales_order",
-  "section_break_zcto",
-  "items",
-  "section_break_wsxr",
+  "section_item",
+  "item_code",
+  "item_name",
+  "column_break_item",
+  "quantity",
+  "uom",
+  "cover_section",
+  "cover_item",
+  "cover_item_name",
+  "cover_front_section",
+  "format_front",
+  "print_type_front",
+  "coating",
+  "design",
+  "column_break_design",
+  "plate_no_front",
+  "cover_back_section",
+  "format",
+  "print_type_back",
+  "column_break_print_cover_back",
+  "plate_no_back",
+  "internal_section",
+  "internal_item",
+  "internal_item_name",
+  "line",
+  "line_top",
+  "column_break_line",
+  "plate_no_in",
+  "other_info_section",
+  "binding",
+  "packaging",
+  "section_note",
   "note",
   "status_section",
   "amended_from",
@@ -27,8 +56,12 @@
  ],
  "fields": [
   {
+   "bold": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer"
   },
@@ -47,10 +80,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_iygg",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -60,20 +89,13 @@
   {
    "fieldname": "delivery_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Delivery Date"
-  },
-  {
-   "fieldname": "column_break_fjcp",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "reference",
    "fieldtype": "Data",
    "label": "Reference"
-  },
-  {
-   "fieldname": "section_break_wsxr",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "note",
@@ -86,21 +108,14 @@
   },
   {
    "allow_on_submit": 1,
+   "default": "\u0e23\u0e48\u0e32\u0e07",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
-   "options": "\u0e23\u0e48\u0e32\u0e07\n\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e1b\u0e01\n\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e1c\u0e25\u0e34\u0e15\n\u0e2b\u0e48\u0e2d\u0e1e\u0e25\u0e32\u0e2a\u0e15\u0e34\u0e01\n\u0e40\u0e02\u0e49\u0e32\u0e04\u0e25\u0e31\u0e07\n\u0e2a\u0e48\u0e07\u0e2d\u0e2d\u0e01"
-  },
-  {
-   "fieldname": "section_break_zcto",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "items",
-   "fieldtype": "Table",
-   "label": "Items",
-   "options": "Manufacturing Order Item"
+   "options": "\u0e23\u0e48\u0e32\u0e07\n\u0e23\u0e2d\u0e1c\u0e25\u0e34\u0e15\n\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e1b\u0e01\n\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e1c\u0e25\u0e34\u0e15\n\u0e2b\u0e48\u0e2d\u0e1e\u0e25\u0e32\u0e2a\u0e15\u0e34\u0e01\n\u0e40\u0e02\u0e49\u0e32\u0e04\u0e25\u0e31\u0e07\n\u0e2a\u0e48\u0e07\u0e2d\u0e2d\u0e01\n\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01"
   },
   {
    "fieldname": "sales_order",
@@ -129,13 +144,207 @@
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company"
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cover_section",
+   "fieldtype": "Section Break",
+   "label": "Cover"
+  },
+  {
+   "fieldname": "cover_item",
+   "fieldtype": "Link",
+   "label": "Cover Item",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "cover_item_name",
+   "fieldtype": "Data",
+   "label": "Cover Item Name"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cover_front_section",
+   "fieldtype": "Section Break",
+   "label": "Cover Front"
+  },
+  {
+   "fieldname": "format_front",
+   "fieldtype": "Select",
+   "label": "Fromat",
+   "options": "\u0e44\u0e21\u0e48\u0e1e\u0e34\u0e21\u0e1e\u0e4c\n\u0e40\u0e1e\u0e25\u0e17 (\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e40\u0e14\u0e34\u0e21)\n\u0e40\u0e1e\u0e25\u0e17 (\u0e23\u0e39\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e43\u0e2b\u0e21\u0e48)\n\u0e1a\u0e25\u0e47\u0e2d\u0e01"
+  },
+  {
+   "fieldname": "print_type_front",
+   "fieldtype": "Select",
+   "label": "Print Type",
+   "options": "\u0e44\u0e21\u0e48\u0e1e\u0e34\u0e21\u0e1e\u0e4c\n1 \u0e2a\u0e35\n2 \u0e2a\u0e35\n3 \u0e2a\u0e35\n4 \u0e2a\u0e35\n\u0e1b\u0e31\u0e4a\u0e21\u0e17\u0e2d\u0e07\u0e40\u0e04"
+  },
+  {
+   "fieldname": "coating",
+   "fieldtype": "Select",
+   "label": "Coating",
+   "options": "\u0e44\u0e21\u0e48\u0e40\u0e04\u0e25\u0e37\u0e2d\u0e1a\n\u0e2d\u0e32\u0e1a\u0e40\u0e07\u0e32\nUV\u0e40\u0e07\u0e32\nUV\u0e40\u0e07\u0e32\u0e40\u0e27\u0e49\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e0a\u0e37\u0e48\u0e2d\u0e0a\u0e31\u0e49\u0e19\u0e27\u0e34\u0e0a\u0e32\nUV\u0e14\u0e49\u0e32\u0e19\nPVC\u0e14\u0e49\u0e32\u0e19\nPVC\u0e40\u0e07\u0e32"
+  },
+  {
+   "fieldname": "design",
+   "fieldtype": "Select",
+   "label": "Design",
+   "options": "\u0e44\u0e21\u0e48\u0e1e\u0e34\u0e21\u0e1e\u0e4c\n\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e40\u0e2d\u0e07\n\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e2a\u0e35\u0e1e\u0e37\u0e49\u0e19\n\u0e25\u0e32\u0e22\u0e40\u0e1e\u0e47\u0e19\u0e17\u0e4c\n\u0e25\u0e32\u0e22\u0e2a\u0e01\u0e4a\u0e2d\u0e15\n\u0e25\u0e32\u0e22\u0e40\u0e1e\u0e0a\u0e23\n\u0e25\u0e32\u0e22\u0e40\u0e2a\u0e49\u0e19\n\u0e25\u0e32\u0e22\u0e44\u0e17\u0e22\u0e1b\u0e3514\n\u0e25\u0e32\u0e22\u0e1c\u0e49\u0e32\u0e1b\u0e3514\n\u0e41\u0e25\u0e04\u0e0b\u0e35\u0e19\u0e25\u0e32\u0e22\u0e44\u0e17\u0e22\n\u0e41\u0e25\u0e04\u0e0b\u0e35\u0e19\u0e25\u0e32\u0e22\u0e1c\u0e49\u0e32\n\u0e01\u0e32\u0e23\u0e4c\u0e14\u0e2a\u0e35\n\u0e01\u0e23\u0e30\u0e14\u0e32\u0e29\u0e19\u0e49\u0e33\u0e15\u0e32\u0e25\n\u0e1b\u0e01\u0e19\u0e49\u0e33\u0e40\u0e07\u0e34\u0e19\u0e40\u0e04\u0e25\u0e37\u0e2d\u0e1a\u0e1e\u0e25\u0e32\u0e2a\u0e15\u0e34\u0e01"
+  },
+  {
+   "fieldname": "plate_no_front",
+   "fieldtype": "Data",
+   "label": "Plate No."
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cover_back_section",
+   "fieldtype": "Section Break",
+   "label": "Cover Back"
+  },
+  {
+   "fieldname": "format",
+   "fieldtype": "Select",
+   "label": "Format",
+   "options": "\u0e44\u0e21\u0e48\u0e1e\u0e34\u0e21\u0e1e\u0e4c\n\u0e40\u0e1e\u0e25\u0e17 (\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e40\u0e14\u0e34\u0e21)\n\u0e40\u0e1e\u0e25\u0e17 (\u0e23\u0e39\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e43\u0e2b\u0e21\u0e48)"
+  },
+  {
+   "fieldname": "print_type_back",
+   "fieldtype": "Select",
+   "label": "Print Type"
+  },
+  {
+   "fieldname": "plate_no_back",
+   "fieldtype": "Data",
+   "label": "Plate No."
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "internal_section",
+   "fieldtype": "Section Break",
+   "label": "Internal"
+  },
+  {
+   "fieldname": "internal_item",
+   "fieldtype": "Link",
+   "label": "Internal Item",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "internal_item_name",
+   "fieldtype": "Data",
+   "label": "Internal Item Name"
+  },
+  {
+   "fieldname": "line",
+   "fieldtype": "Select",
+   "label": "Line",
+   "options": "\u0e44\u0e21\u0e48\u0e1e\u0e34\u0e21\u0e1e\u0e4c\n\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e40\u0e2d\u0e07\n\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e2a\u0e35\u0e1e\u0e37\u0e49\u0e19\n\u0e25\u0e32\u0e22\u0e40\u0e1e\u0e47\u0e19\u0e17\u0e4c\n\u0e25\u0e32\u0e22\u0e2a\u0e01\u0e4a\u0e2d\u0e15\n\u0e25\u0e32\u0e22\u0e40\u0e1e\u0e0a\u0e23\n\u0e25\u0e32\u0e22\u0e40\u0e2a\u0e49\u0e19\n\u0e25\u0e32\u0e22\u0e44\u0e17\u0e22\u0e1b\u0e3514\n\u0e25\u0e32\u0e22\u0e1c\u0e49\u0e32\u0e1b\u0e3514\n\u0e41\u0e25\u0e04\u0e0b\u0e35\u0e19\u0e25\u0e32\u0e22\u0e44\u0e17\u0e22\n\u0e41\u0e25\u0e04\u0e0b\u0e35\u0e19\u0e25\u0e32\u0e22\u0e1c\u0e49\u0e32\n\u0e01\u0e32\u0e23\u0e4c\u0e14\u0e2a\u0e35\n\u0e01\u0e23\u0e30\u0e14\u0e32\u0e29\u0e19\u0e49\u0e33\u0e15\u0e32\u0e25\n\u0e1b\u0e01\u0e19\u0e49\u0e33\u0e40\u0e07\u0e34\u0e19\u0e40\u0e04\u0e25\u0e37\u0e2d\u0e1a\u0e1e\u0e25\u0e32\u0e2a\u0e15\u0e34\u0e01"
+  },
+  {
+   "fieldname": "line_top",
+   "fieldtype": "Select",
+   "label": "Line Top",
+   "options": "\u0e44\u0e21\u0e48\u0e04\u0e31\u0e48\u0e19\n\u0e04\u0e31\u0e48\u0e19\u0e41\u0e14\u0e07\n\u0e04\u0e31\u0e48\u0e19\u0e19\u0e49\u0e33\u0e40\u0e07\u0e34\u0e19\n\u0e04\u0e31\u0e48\u0e19\u0e40\u0e17\u0e32"
+  },
+  {
+   "fieldname": "plate_no_in",
+   "fieldtype": "Data",
+   "label": "Plate No."
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "other_info_section",
+   "fieldtype": "Section Break",
+   "label": "Other Info"
+  },
+  {
+   "fieldname": "binding",
+   "fieldtype": "Select",
+   "label": "Binding",
+   "options": "\u0e40\u0e22\u0e47\u0e1a\u0e25\u0e27\u0e14\n\u0e2a\u0e31\u0e19\u0e01\u0e32\u0e27\n\u0e2a\u0e31\u0e19\u0e01\u0e32\u0e27\u0e41\u0e1a\u0e1a\u0e40\u0e1b\u0e34\u0e14\u0e21\u0e35\u0e14\n\u0e23\u0e34\u0e21\u0e2b\u0e48\u0e27\u0e07\n\u0e01\u0e32\u0e27\u0e2b\u0e31\u0e27"
+  },
+  {
+   "fieldname": "packaging",
+   "fieldtype": "Data",
+   "label": "Packaging"
+  },
+  {
+   "fieldname": "column_break_customer",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_date",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_item",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_design",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_print_cover_back",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_line",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_note",
+   "fieldtype": "Section Break",
+   "label": "Note"
+  },
+  {
+   "fieldname": "section_item",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-15 09:51:20.772741",
+ "modified": "2024-11-18 16:29:22.870715",
  "modified_by": "Administrator",
  "module": "Menghua Co",
  "name": "Manufacturing Order",

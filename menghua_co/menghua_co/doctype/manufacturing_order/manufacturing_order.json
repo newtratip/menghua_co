@@ -17,6 +17,7 @@
   "status",
   "reference",
   "sales_order",
+  "work_order",
   "section_item",
   "item_code",
   "item_name",
@@ -340,12 +341,18 @@
    "fieldtype": "Select",
    "label": "Format",
    "options": "\u0e44\u0e21\u0e48\u0e1e\u0e34\u0e21\u0e1e\u0e4c\n\u0e40\u0e1e\u0e25\u0e17 (\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e40\u0e14\u0e34\u0e21)\n\u0e40\u0e1e\u0e25\u0e17 (\u0e23\u0e39\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e43\u0e2b\u0e21\u0e48)"
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-19 11:04:38.238027",
+ "modified": "2024-11-19 16:06:50.862752",
  "modified_by": "Administrator",
  "module": "Menghua Co",
  "name": "Manufacturing Order",

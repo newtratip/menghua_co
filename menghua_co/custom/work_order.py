@@ -5,10 +5,10 @@ from frappe.model.document import Document
 
 class WorkOrder(Document):
     def after_insert(self):
-        make_manufacturing_order_auto(self.name)
+        make_manufacturing_order_auto(self)
 
 @frappe.whitelist()
-def make_manufacturing_order_auto(doc, method):
+def make_manufacturing_order_auto(doc):
     make_manufacturing_order_auto = frappe.get_cached_value(
         "Company", doc.company, "custom_enable_manufacturing_order_auto"
     )
@@ -48,11 +48,8 @@ def make_manufacturing_order_auto(doc, method):
             doclist.insert()  
             frappe.db.commit()  
 
-
 @frappe.whitelist()
 def make_manufacturing_order(source_name, target_doc=None):
-    from frappe.model.mapper import get_mapped_doc
-
     def set_missing_values(source, target):
         target.date = source.creation
         target.company = source.company
@@ -80,3 +77,36 @@ def make_manufacturing_order(source_name, target_doc=None):
     )
 
     return doclist
+
+def update_dashboard_link_for_core_doctype(doctype, link_doctype, link_fieldname, group=None):
+    try:
+        d = frappe.get_doc("Customize Form")
+        
+        if doctype:
+            d.doc_type = doctype
+        
+        d.run_method("fetch_to_customize")
+        
+        for link in d.get('links'):
+            if link.link_doctype == link_doctype and link.link_fieldname == link_fieldname:
+                return
+        
+        d.append('links', dict(link_doctype=link_doctype, link_fieldname=link_fieldname, table_fieldname=None, group=group))
+        d.run_method("save_customization")
+        
+        frappe.clear_cache()
+
+    except Exception:
+        frappe.log_error(frappe.get_traceback())
+
+def after_work_order_creation(doc, method):
+    update_dashboard_link_for_core_doctype(
+        doctype="Work Order", 
+        link_doctype="Manufacturing Order", 
+        link_fieldname="work_order", 
+        group="Reference"
+    )
+
+def after_insert_combined(doc, method):
+    make_manufacturing_order_auto(doc)
+    after_work_order_creation(doc, method)

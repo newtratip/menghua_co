@@ -245,4 +245,11 @@ required_apps = ["frappe/erpnext", "kittiu/thai_tax", "kittiu/sales_billing"]
 doctype_js = {
 	"Sales Order": "public/js/sales_order.js",
     "Quotation": "public/js/quotation.js",
+    "Work Order": "public/js/work_order.js",
+}
+
+doc_events = {
+    "Work Order": {
+        "after_insert": "menghua_co.custom.work_order.make_manufacturing_order_auto"
+    }
 }

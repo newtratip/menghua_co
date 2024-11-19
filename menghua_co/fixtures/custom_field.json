@@ -1,48 +1,68 @@
 [
- {
-  "doctype": "Custom Field",
-  "dt": "Sales Order",
-  "fieldname": "custom_mh_order_type",
-  "fieldtype": "Select",
-  "insert_after": "order_type",
-  "label": "MH Order Type",
-  "module": "Menghua Co",
-  "name": "Sales Order-custom_mh_order_type",
-  "options": "หน้าร้าน\nสั่งทำ",
-  "reqd": 1
- },
- {
-  "doctype": "Custom Field",
-  "dt": "Quotation",
-  "fieldname": "custom_mh_order_type",
-  "fieldtype": "Select",
-  "insert_after": "order_type",
-  "label": "MH Order Type",
-  "module": "Menghua Co",
-  "name": "Quotation-custom_mh_order_type",
-  "options": "หน้าร้าน\nสั่งทำ",
-  "reqd": 1
- },
- {
-  "depends_on": "eval:doc.is_sales_item == 1",
-  "doctype": "Custom Field",
-  "dt": "Item",
-  "fieldname": "custom_allow_standard_type",
-  "fieldtype": "Check",
-  "insert_after": "is_sales_item",
-  "label": "Allow Standard Type",
-  "module": "Menghua Co",
-  "name": "Item-custom_allow_standard_type"
- },
- {
-  "depends_on": "eval:doc.is_sales_item == 1",
-  "doctype": "Custom Field",
-  "dt": "Item",
-  "fieldname": "custom_allow_custom_type",
-  "fieldtype": "Check",
-  "insert_after": "custom_allow_standard_type",
-  "label": "Allow Custom Type",
-  "module": "Menghua Co",
-  "name": "Item-custom_allow_custom_type"
- }
+{
+    "doctype": "Custom Field",
+    "dt": "Sales Order",
+    "fieldname": "custom_mh_order_type",
+    "fieldtype": "Select",
+    "insert_after": "order_type",
+    "label": "MH Order Type",
+    "module": "Menghua Co",
+    "name": "Sales Order-custom_mh_order_type",
+    "options": "หน้าร้าน\nสั่งทำ",
+    "reqd": 1
+},
+{
+    "doctype": "Custom Field",
+    "dt": "Quotation",
+    "fieldname": "custom_mh_order_type",
+    "fieldtype": "Select",
+    "insert_after": "order_type",
+    "label": "MH Order Type",
+    "module": "Menghua Co",
+    "name": "Quotation-custom_mh_order_type",
+    "options": "หน้าร้าน\nสั่งทำ",
+    "reqd": 1
+},
+{
+    "depends_on": "eval:doc.is_sales_item == 1",
+    "doctype": "Custom Field",
+    "dt": "Item",
+    "fieldname": "custom_allow_standard_type",
+    "fieldtype": "Check",
+    "insert_after": "is_sales_item",
+    "label": "Allow Standard Type",
+    "module": "Menghua Co",
+    "name": "Item-custom_allow_standard_type"
+},
+{
+    "depends_on": "eval:doc.is_sales_item == 1",
+    "doctype": "Custom Field",
+    "dt": "Item",
+    "fieldname": "custom_allow_custom_type",
+    "fieldtype": "Check",
+    "insert_after": "custom_allow_standard_type",
+    "label": "Allow Custom Type",
+    "module": "Menghua Co",
+    "name": "Item-custom_allow_custom_type"
+},
+{
+    "doctype": "Custom Field",
+    "description": "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07 Work Order \u0e08\u0e32\u0e01 Sales Order \u0e23\u0e30\u0e1a\u0e1a\u0e08\u0e30\u0e2a\u0e23\u0e49\u0e32\u0e07 Manufacturing Order \n\u0e43\u0e2b\u0e49\u0e42\u0e14\u0e22\u0e2d\u0e31\u0e15\u0e42\u0e19\u0e21\u0e31\u0e15\u0e34",
+   "docstatus": 0,
+    "dt": "Company",
+    "fieldname": "custom_enable_manufacturing_order_auto",
+    "fieldtype": "Check",
+    "insert_after": "custom_mh_setting",
+    "label": "Enable auto-create manufacturing order",
+    "name": "Company-custom_enable_manufacturing_order_auto"
+},
+{
+    "doctype": "Custom Field",
+    "dt": "Company",
+    "fieldname": "custom_mh_setting",
+    "fieldtype": "Tab Break",
+    "insert_after": "default_operating_cost_account",
+    "label": "MH Setting",
+    "name": "Company-custom_mh_setting"
+   }
 ]

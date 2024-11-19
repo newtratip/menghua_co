@@ -250,6 +250,10 @@ doctype_js = {
 
 doc_events = {
     "Work Order": {
-        "after_insert": "menghua_co.custom.work_order.make_manufacturing_order_auto"
-    }
+        "after_insert": "menghua_co.custom.work_order.make_manufacturing_order_auto",
+        "on_update": "menghua_co.custom.work_order_dashboard.after_work_order_creation"
+    },
+    "Sales Order": {
+        "after_insert": "menghua_co.custom.sales_order_dashboard.after_sales_order_creation"
+    },
 }

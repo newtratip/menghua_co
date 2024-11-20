@@ -48,7 +48,6 @@ def make_manufacturing_order_auto(doc, method):
             doclist.insert()  
             frappe.db.commit()  
 
-
 @frappe.whitelist()
 def make_manufacturing_order(source_name, target_doc=None):
     from frappe.model.mapper import get_mapped_doc

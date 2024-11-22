@@ -23,13 +23,11 @@ def create_manufacturing_order(source_name, target_doc=None, show_message=True):
         target.item_name = source.item_name
         target.quantity = source.qty
         target.uom = source.stock_uom
-
         if source.sales_order:
             sales_order = frappe.get_doc("Sales Order", source.sales_order)
             target.customer = sales_order.customer  
             target.delivery_date = sales_order.delivery_date
-
-    doclist = get_mapped_doc(
+    doc = get_mapped_doc(
         "Work Order", 
         source_name, 
         {
@@ -40,15 +38,11 @@ def create_manufacturing_order(source_name, target_doc=None, show_message=True):
         target_doc, 
         set_missing_values, 
     )
-
-    if doclist:
-        new_doc = doclist.insert()  
-
-        mo_name = new_doc.name
-
+    if doc:
+        new_doc = doc.insert()  
         if show_message:
             frappe.msgprint(
-                _("Manufacturing Order Created: <a href='/app/manufacturing-order/{0}'>{0}</a>").format(mo_name),
+                _("Manufacturing Order Created: <a href='/app/manufacturing-order/{0}'>{0}</a>").format(new_doc.name),
                 alert=True,
                 indicator="green"
             )

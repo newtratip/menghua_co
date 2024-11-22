@@ -92,6 +92,8 @@ required_apps = ["frappe/erpnext", "kittiu/thai_tax", "kittiu/sales_billing"]
 # before_uninstall = "menghua_co.uninstall.before_uninstall"
 # after_uninstall = "menghua_co.uninstall.after_uninstall"
 
+after_migrate = ["menghua_co.custom.print_format_setting.set_print_format_as_disable"]
+
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
@@ -185,7 +187,10 @@ required_apps = ["frappe/erpnext", "kittiu/thai_tax", "kittiu/sales_billing"]
 # override_doctype_dashboards = {
 # 	"Task": "menghua_co.task.get_dashboard_data"
 # }
-
+override_doctype_dashboards = {
+	"Sales Order": "menghua_co.custom.dashboard_overrides.get_dashboard_data_for_sales_order",
+	"Work Order": "menghua_co.custom.dashboard_overrides.get_dashboard_data_for_work_order",
+}
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
@@ -250,9 +255,6 @@ doctype_js = {
 
 doc_events = {
     "Work Order": {
-        "after_insert": "menghua_co.custom.work_order.make_manufacturing_order_auto"
-    },
-    "Sales Order": {
-        "after_insert": "menghua_co.custom.sales_order_dashboard.after_sales_order_creation"
-    },
+        "after_insert": "menghua_co.custom.work_order.auto_create_manufacturing_order"
+    }
 }

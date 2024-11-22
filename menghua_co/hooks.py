@@ -92,6 +92,8 @@ required_apps = ["frappe/erpnext", "kittiu/thai_tax", "kittiu/sales_billing"]
 # before_uninstall = "menghua_co.uninstall.before_uninstall"
 # after_uninstall = "menghua_co.uninstall.after_uninstall"
 
+after_migrate = ["menghua_co.custom.print_format_setting.set_print_format_as_disable"]
+
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
@@ -253,6 +255,6 @@ doctype_js = {
 
 doc_events = {
     "Work Order": {
-        "after_insert": "menghua_co.custom.work_order.make_manufacturing_order"
+        "after_insert": "menghua_co.custom.work_order.auto_create_manufacturing_order"
     }
 }

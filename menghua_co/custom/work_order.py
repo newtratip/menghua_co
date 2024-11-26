@@ -5,13 +5,19 @@ from frappe.model.document import Document
 
 class WorkOrder(Document):
     def after_insert(self):
-        auto_create_manufacturing_order(self.name)
+        auto_create_manufacturing_order(self)
 
 @frappe.whitelist()
-def auto_create_manufacturing_order(doc, method=None):
-    auto_mo = frappe.get_cached_value("Company", doc.company, "custom_enable_manufacturing_order_auto")
-    if auto_mo:
-        create_manufacturing_order(doc.name, show_message=False)
+def auto_create_manufacturing_order(work_order, method=None):
+    if work_order.sales_order:
+        auto_mo_from_so = frappe.get_cached_value("Company", work_order.company, "auto_mo_from_so")
+        if auto_mo_from_so == 1:
+            create_manufacturing_order(work_order.name, show_message=False)
+    
+    elif work_order.material_request:
+        auto_mo_from_mr = frappe.get_cached_value("Company", work_order.company, "auto_mo_from_mr")
+        if auto_mo_from_mr == 1:
+            create_manufacturing_order(work_order.name, show_message=False)
 
 @frappe.whitelist()
 def create_manufacturing_order(source_name, target_doc=None, show_message=True): 
@@ -23,10 +29,17 @@ def create_manufacturing_order(source_name, target_doc=None, show_message=True):
         target.item_name = source.item_name
         target.quantity = source.qty
         target.uom = source.stock_uom
+        
         if source.sales_order:
             sales_order = frappe.get_doc("Sales Order", source.sales_order)
             target.customer = sales_order.customer  
             target.delivery_date = sales_order.delivery_date
+        
+        elif source.material_request:
+            material_request = frappe.get_doc("Material Request", source.material_request)
+            target.customer = material_request.customer  
+            target.delivery_date = material_request.delivery_date if hasattr(material_request, 'delivery_date') else source.creation
+
     doc = get_mapped_doc(
         "Work Order", 
         source_name, 

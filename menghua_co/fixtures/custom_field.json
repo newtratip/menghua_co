@@ -19,7 +19,7 @@
      "name": "Company-auto_mo_from_so"
     },
     {
-     "description": "การสร้าง Work Order จาก MateMaterial Request ระบบจะสร้าง Manufacturing Order \nให้โดยอัตโนมัติ",
+     "description": "การสร้าง Work Order จาก Material Request ระบบจะสร้าง Manufacturing Order \nให้โดยอัตโนมัติ",
      "doctype": "Custom Field",
      "dt": "Company",
      "fieldname": "auto_mo_from_mr",

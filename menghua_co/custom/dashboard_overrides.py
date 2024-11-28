@@ -14,3 +14,11 @@ def get_dashboard_data_for_work_order(data):
         if transaction["label"] == _("Reference"):
             transaction["items"].append("Manufacturing Order")
             return data
+        
+
+def get_dashboard_data_for_material_request(data):
+    data["non_standard_fieldnames"].update({"Material Request": "material_request"})
+    for transaction in data["transactions"]:
+        if transaction["label"] == _("Manufacturing"):
+            transaction["items"].append("Manufacturing Order")
+            return data

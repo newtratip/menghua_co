@@ -190,6 +190,7 @@ after_migrate = ["menghua_co.custom.print_format_setting.set_print_format_as_dis
 override_doctype_dashboards = {
 	"Sales Order": "menghua_co.custom.dashboard_overrides.get_dashboard_data_for_sales_order",
 	"Work Order": "menghua_co.custom.dashboard_overrides.get_dashboard_data_for_work_order",
+	"Material Request": "menghua_co.custom.dashboard_overrides.get_dashboard_data_for_material_request",
 }
 # exempt linked doctypes from being automatically cancelled
 #

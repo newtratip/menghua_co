@@ -249,9 +249,10 @@ override_doctype_dashboards = {
 # }
 
 doctype_js = {
-	"Sales Order": "public/js/sales_order.js",
+    "Sales Order": "public/js/sales_order.js",
     "Quotation": "public/js/quotation.js",
     "Work Order": "public/js/work_order.js",
+    "Purchase Invoice":"public/js/purchase_invoice.js",
 }
 
 doc_events = {

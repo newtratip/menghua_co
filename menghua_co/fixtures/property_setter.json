@@ -199,12 +199,12 @@
   "value": "0"
  },
  {
-    "doc_type": "Purchase Invoice",
-    "doctype": "Property Setter",
-    "doctype_or_field": "DocField",
-    "field_name": "supplier_invoice_details",
-    "name": "Purchase Invoice-supplier_invoice_details-collapsible",
-    "property": "collapsible",
-    "property_type": "Check"
+  "doc_type": "Purchase Invoice",
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "supplier_invoice_details",
+  "name": "Purchase Invoice-supplier_invoice_details-collapsible",
+  "property": "collapsible",
+  "property_type": "Check"
  }
 ]

@@ -12,3 +12,17 @@ frappe.ui.form.on('Manufacturing Order', {
         });
     }
 });
+
+frappe.ui.form.on('Manufacturing Order', {
+    onload: function(frm) {
+        if (frm.doc.docstatus == 0 && frm.doc.mh_status == "ยกเลิก") {
+            frm.set_value('mh_status', 'ร่าง');
+        }
+    },
+    
+    validate: function(frm) {
+        if (frm.doc.docstatus == 0 && frm.doc.mh_status == "ยกเลิก") {
+            frm.set_value('mh_status', 'ร่าง');
+        }
+    }
+});

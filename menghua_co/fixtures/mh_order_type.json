@@ -1,0 +1,12 @@
+[
+ {
+  "doctype": "MH Order Type",
+  "mh_order_type": "หน้าร้าน",
+  "name": "หน้าร้าน"
+ },
+ {
+  "doctype": "MH Order Type",
+  "mh_order_type": "สั่งทำ",
+  "name": "สั่งทำ"
+ }
+]

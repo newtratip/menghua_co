@@ -1,0 +1,20 @@
+[
+ {
+  "doctype": "Session Default Settings",
+  "name": "Session Default Settings",
+  "session_defaults": [
+   {
+    "parent": "Session Default Settings",
+    "parentfield": "session_defaults",
+    "parenttype": "Session Default Settings",
+    "ref_doctype": "Company"
+   },
+   {
+    "parent": "Session Default Settings",
+    "parentfield": "session_defaults",
+    "parenttype": "Session Default Settings",
+    "ref_doctype": "MH Order Type"
+   }
+  ]
+ }
+]

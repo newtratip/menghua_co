@@ -101,25 +101,27 @@
         "label": "MH Detail",
         "name": "Warehouse-custom_mh_detail"
     },
-    {
+    {   
+        "description": "ล็อค",
         "doctype": "Custom Field",
         "dt": "Warehouse",
         "fieldname": "custom_lock",
         "fieldtype": "Data",
         "insert_after": "custom_mh_detail",
-        "label": "ล็อค (Lock)",
+        "label": "Lock",
         "name": "Warehouse-custom_lock"
    },
    {
+        "description": "แถว",
         "doctype": "Custom Field",
         "dt": "Warehouse",
         "fieldname": "custom_row",
         "fieldtype": "Data",
         "insert_after": "custom_lock",
-        "label": "แถว (Row)",
+        "label": "Row",
         "name": "Warehouse-custom_row"
    },
-   {
+   {    
         "doctype": "Custom Field",
         "dt": "Warehouse",
         "fieldname": "custom_column_break_mh_detail",
@@ -128,21 +130,23 @@
         "name": "Warehouse-custom_column_break_mh_detail"
    },
    {
+        "description": "ชั้น",
         "doctype": "Custom Field",
         "dt": "Warehouse",
         "fieldname": "custom_shelf",
         "fieldtype": "Data",
         "insert_after": "custom_column_break_mh_detail",
-        "label": "ชั้น (Shelf)",
+        "label": "Shelf",
         "name": "Warehouse-custom_shelf"
    },
    {
+        "description": "ช่อง",
         "doctype": "Custom Field",
         "dt": "Warehouse",
         "fieldname": "custom_block",
         "fieldtype": "Data",
         "insert_after": "custom_shelf",
-        "label": "ช่อง (Block)",
+        "label": "Block",
         "name": "Warehouse-custom_block"
    }
 ]
